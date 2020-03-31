@@ -18,25 +18,41 @@
 # tu_flyers = Flyers(name = 'TU-134', color = 'white', years=2003)
 # print(tu_flyers.years)
 
+#
+# class Car:
+#     wheels_number = 4 # Предопределенные атрибуты
+#     def __init__(self, name, color, year, isCrashed): # Иннициализация класса
+#         self.name = name # Атрибуты класса
+#         self.color = color # Атрибуты класса
+#         self.year = year # Атрибуты класса
+#         self.isCrashed = isCrashed # Атрибуты класса
+#
+#     def drive(self, city): # Метод класса
+#         print(self.name +  ' is driving to ' + city)
+#
+#     def change_color(self, new_color):
+#         self.color = new_color
+#
+# opel_car = Car('Opel', 'grey', 1999, True)
+# opel_car.drive(city = 'Uralsk')
+# print(opel_car.color)
+# opel_car.change_color('yellow')
+# print(opel_car.color)
 
-class Car:
-    wheels_number = 4 # Предопределенные атрибуты
-    def __init__(self, name, color, year, isCrashed): # Иннициализация класса
-        self.name = name # Атрибуты класса
-        self.color = color # Атрибуты класса
-        self.year = year # Атрибуты класса
-        self.isCrashed = isCrashed # Атрибуты класса
+class Circle:
+    PI = 3.14
+    def __init__(self, radius = 1):
+        self.radius = radius
 
-    def drive(self, city): # Метод класса
-        print(self.name +  ' is driving to ' + city)
+    def get_area(self):
+        return self.PI * (self.radius ** 2)
 
-    def change_color(self, new_color):
-        self.color = new_color
+    def get_lenth(self):
+        return 2 * self.PI * self.radius
 
-opel_car = Car('Opel', 'grey', 1999, True)
-opel_car.drive(city = 'Uralsk')
-print(opel_car.color)
-opel_car.change_color('yellow')
-print(opel_car.color)
+# circle1 = Circle(3)
+# print(circle1.get_area())
 
-
+circle2 = Circle(5)
+print(circle2.get_area())
+print(circle2.get_lenth())
