@@ -43,8 +43,8 @@ class Circle:
     PI = 3.14
     def __init__(self, radius = 1):
         self.radius = radius
-        self.area = self.PI * (self.radius ** 2)
-        self.lenth = 2 * self.PI * self.radius
+        self.area = Circle.PI * (self.radius ** 2)
+        self.lenth = 2 * Circle.PI * self.radius
 
     # def get_area(self):
     #     return self.PI * (self.radius ** 2)
