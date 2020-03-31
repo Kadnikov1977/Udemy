@@ -20,18 +20,23 @@
 
 
 class Car:
-    wheels_number = 4
-    def __init__(self, name, color, year, isCrashed):
-        self.name = name
-        self.color = color
-        self.year = year
-        self.isCrashed = isCrashed
+    wheels_number = 4 # Предопределенные атрибуты
+    def __init__(self, name, color, year, isCrashed): # Иннициализация класса
+        self.name = name # Атрибуты класса
+        self.color = color # Атрибуты класса
+        self.year = year # Атрибуты класса
+        self.isCrashed = isCrashed # Атрибуты класса
 
-    def drive(self):
-        print(self.name +  ' is driving')
+    def drive(self, city): # Метод класса
+        print(self.name +  ' is driving to ' + city)
+
+    def change_color(self, new_color):
+        self.color = new_color
 
 opel_car = Car('Opel', 'grey', 1999, True)
-opel_car.drive()
-
+opel_car.drive(city = 'Uralsk')
+print(opel_car.color)
+opel_car.change_color('yellow')
+print(opel_car.color)
 
 
