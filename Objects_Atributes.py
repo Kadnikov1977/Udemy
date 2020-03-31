@@ -43,16 +43,20 @@ class Circle:
     PI = 3.14
     def __init__(self, radius = 1):
         self.radius = radius
+        self.area = self.PI * (self.radius ** 2)
+        self.lenth = 2 * self.PI * self.radius
 
-    def get_area(self):
-        return self.PI * (self.radius ** 2)
-
-    def get_lenth(self):
-        return 2 * self.PI * self.radius
+    # def get_area(self):
+    #     return self.PI * (self.radius ** 2)
+    #
+    # def get_lenth(self):
+    #     return 2 * self.PI * self.radius
 
 # circle1 = Circle(3)
 # print(circle1.get_area())
 
 circle2 = Circle(5)
-print(circle2.get_area())
-print(circle2.get_lenth())
+# print(circle2.get_area())
+# print(circle2.get_lenth())
+print(circle2.area)
+print(circle2.lenth)
