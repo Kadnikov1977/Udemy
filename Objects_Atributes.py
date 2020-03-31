@@ -13,9 +13,9 @@ print(mazda_car.year)
 print(mazda_car.isCrashed)
 print(mazda_car.wheels_number)
 
-# bmv_car = Car(name='BMV', color= 'black', year = 2020, isCrashed= 45)
-# print(bmv_car.name)
-# print(bmv_car.isCrashed)
+bmv_car = Car(name='BMV', color= 'black', year = 2020, isCrashed= 45)
+print(bmv_car.name)
+print(bmv_car.isCrashed)
 
 class Flyers:
     def __init__(self, name, color, years):
