@@ -39,12 +39,12 @@
 # opel_car.change_color('yellow')
 # print(opel_car.color)
 
-class Circle:
-    PI = 3.14
-    def __init__(self, radius = 1):
-        self.radius = radius
-        self.area = Circle.PI * (self.radius ** 2)
-        self.lenth = 2 * Circle.PI * self.radius
+# class Circle:
+#     PI = 3.14
+#     def __init__(self, radius = 1):
+#         self.radius = radius
+#         self.area = Circle.PI * (self.radius ** 2)
+#         self.lenth = 2 * Circle.PI * self.radius
 
     # def get_area(self):
     #     return self.PI * (self.radius ** 2)
@@ -55,14 +55,61 @@ class Circle:
 # circle1 = Circle(3)
 # print(circle1.get_area())
 
-circle2 = Circle(5)
+# circle2 = Circle(5)
 # print(circle2.get_area())
 # print(circle2.get_lenth())
-print(circle2.area)
-print(circle2.lenth)
+# print(circle2.area)
+# print(circle2.lenth)
 
-circle3 = Circle(30)
+# circle3 = Circle(30)
 # print(circle2.get_area())
 # print(circle2.get_lenth())
-print(circle3.area)
-print(circle3.lenth)
+# print(circle3.area)
+# print(circle3.lenth)
+
+#===============================================================================================
+
+# Задачи
+
+# Создайте класс BlogPost с атрибутами user_name, text, number_of_likes.
+# Создайте два объекта этого класса.
+# После создания измените атрибут number_of_likes одного из объектов.
+# Распечатайте атрибут number_of_likes каждого из объектов
+
+# class BlogPost:
+#     def __init__(self, user_name, text, number_of_likes):
+#         self.user_name = user_name
+#         self.text = text
+#         self.number_of_likes = number_of_likes
+#
+# user1 = BlogPost('Igor', 'Создайте класс BlogPost с атрибутами user_name, text, number_of_likes', 4)
+# user2 = BlogPost('Vlad', 'Создайте два объекта этого класса', 6)
+#
+# user1.number_of_likes = 10
+#
+# print(user1.number_of_likes)
+# print(user2.number_of_likes)
+
+# Создайте класс BankAccount с атрибутами client_id, client_first_name, client_last_name,
+# balance и методами add() и withdraw(), при помощи которых можно пополнять счет и
+# выводить средства со счета соответственно.
+# Атрибут balance должен инициализироваться по умолчанию значением 0.0
+# и меняться при срабатывании методов add() и withdraw().
+
+class BankAccount:
+    balance = 0.0
+    def __init__(self, client_id, client_first_name, client_last_name, balance):
+        self.client_id = client_id
+        self.client_first_name = client_first_name
+        self.client_last_name = client_last_name
+        self.balance = balance
+
+    def add(self):
+        self.balance += float(input('ВВедите значение баланса  '))
+
+    def withdraw(self):
+        print(self.balance)
+
+account_igor = BankAccount(1000001, 'Igor', 'Kadnikov', 1000)
+account_igor.add()
+account_igor.withdraw()
