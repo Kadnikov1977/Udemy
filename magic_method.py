@@ -10,7 +10,12 @@ class Person:
     def __len__(self): # переопределяем встроенный метод len
         return len(self.first_name) + len(self.second_name)
 
-jack = Person('Igor', 'Kadnikov', 42)
+    def __add__(self, other):
+        return len(self) + len(other)
 
-print(jack)
-print(len(jack))
+
+igor = Person('Igor', 'Kadnikov', 42)
+vlad = Person('Vladik', 'Kadnikov', 20)
+print(igor + vlad)
+#print(jack)
+#print(len(jack))
