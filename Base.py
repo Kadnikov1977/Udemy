@@ -174,6 +174,23 @@
 # Присвойте результат переменной. Выведите переменную на экран.
 # Выведите тип значения переменной на экран. При необходимости найдите информацию в интернете
 
-hello = set()
-hello.update('Hi Harrychpoker. What you doing?')
-print(hello)
+# hello = set()
+# hello.update('Hi Harrychpoker. What you doing?')
+# print(hello)
+
+# Из исходного списка greetings = ['hello', 'hi', 'hey', 'hola']
+# создайте новый список содержащий вторую букву из каждой строки исходного списка. Выведите новый список на печать.
+# # Решите задание двумя способами - при помощи List Comprehension и без него.
+#
+# greetings = ['hello', 'hi', 'hey', 'hola']
+# new_list = [t[1] for t in greetings]
+# print(new_list)
+
+
+# Из исходного списка digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] создайте новый список содержащий нечетные числа исходного списка.
+# Выведите новый список на печать.
+# Решите задание двумя способами - при помощи List Comprehension и без него.
+
+digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+new_list = [t for t in digits if (t % 2) != 0]
+print(new_list)
