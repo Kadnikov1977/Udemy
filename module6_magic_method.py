@@ -17,8 +17,8 @@
 # igor = Person('Igor', 'Kadnikov', 42)
 # vlad = Person('Vladik', 'Kadnikov', 20)
 # print(igor + vlad)
-#print(jack)
-#print(len(jack))
+# print(jack)
+# print(len(jack))
 
 class Chain:
     def __init__(self, number_of_items):
