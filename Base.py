@@ -74,14 +74,42 @@
 # Отступите от левого края расстояние, равное двум табуляциям.
 # Выполните перенос текста на новую строку двумя способами
 
-print('''
-\t\tBaa, baa, black sheep,
-\t\tHave you any wool?
-\t\tYes sir, yes sir,
-\t\tThree bags full
+# print('''
+# \t\tBaa, baa, black sheep,
+# \t\tHave you any wool?
+# \t\tYes sir, yes sir,
+# \t\tThree bags full
+#
+# \t\tOne for the master,
+# \t\tOne for the dame,
+# \t\tAnd one for the little boy
+# \t\tWho lives down the lane
+# ''')
 
-\t\tOne for the master,
-\t\tOne for the dame,
-\t\tAnd one for the little boy
-\t\tWho lives down the lane
-''')
+# Выведите на печать вторую букву l из строки 'Hello Python!'
+# Присвойте строку переменной, затем выведите на печать букву
+#
+charof_l = 'Hello Python!'[3]
+print(charof_l)
+
+
+
+# Выведите на печать вторую букву l из строки 'Hello Python!'
+# Сделайте это без присваивания строки переменной, в одной строке кода.
+# Если не знаете, как это сделать, попробуйте погуглить
+#
+print('Hello Python!'[2])
+
+
+# Выведите на печать 'He' из строки 'Hello Python!' минимум двумя способами
+#
+print('Hello Python!'[:2])
+print('Hello Python!'[0:2])
+
+
+
+# Создайте новую строку 'Path' из строки 'Hello Python!' путём конкатенации части строки и отсутствующего символа.
+# Выведите новую строку на печать
+r = 'Hello Python!'
+charof_he = r[6] + 'a' + r[8:10]
+print(charof_he)
