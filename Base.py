@@ -156,9 +156,16 @@
 
 # Создайте объект dictionary, содержащий пары ключей и значений, выведите на экран одно значение
 #
-dic1 = {1: 'Igor', 2: 'Kadnikov', 3: 42, 4: 180}
-print(dic1)
+# dic1 = {1: 'Igor', 2: 'Kadnikov', 3: 42, 4: 180}
+# print(dic1)
 
 # Создайте объект dictionary, описывающий компьютер
 
-comp1 = {'CPU': 'Core2Quad', 'RAM': 8000, 'HDD': 240}
+# comp1 = {'CPU': 'Core2Quad', 'RAM': 8000, 'HDD': 240}
+
+# Создайте объект tuple, описывающий компьютер и распакуйте его в соответствующие переменные.
+# Выведите переменные вызвав функцию print() один раз
+
+comp1 = ('notebook', 'Pentium', 2048, 500)
+CPU, Proc, RAM, HDD = comp1
+print(CPU, Proc, RAM, HDD)
