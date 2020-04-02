@@ -32,12 +32,56 @@
 # Вычислите и выведите на экран средний возраст человека исходя из данных о возрасте этих пятерых людей.
 # Если не знаете формулу вычисления среднего арифметического значения, воспользуйтесь поиском информации в интернете.
 # При создании имён переменных используйте подходящие по смыслу слова. Воспользуйтесь Google переводчиком, если нужно.
+#
+# human1_age = 23
+# human2_age = 32
+# human3_age = 45
+# human4_age = 54
+# human_num = 4
+# mid_of_age = (human1_age + human2_age + human3_age + human4_age) / human_num
+#
+# print(mid_of_age)
 
-human1_age = 23
-human2_age = 32
-human3_age = 45
-human4_age = 54
-human_num = 4
-mid_of_age = (human1_age + human2_age + human3_age + human4_age) / human_num
 
-print(mid_of_age)
+# Создайте переменные, поместите в них значения - имя, фамилию и возраст.
+# Выведите на экран следующее предложение: "Hi! My name is имя фамилия, I'm возраст years old."
+# Используйте конкатенацию переменных и строк.
+#
+# first_name = 'Igor'
+# second_name = 'Kadnikov'
+# age = 42
+#
+# print(f'Hi! My name is {first_name} {second_name}, I\'m {age} years old')
+#
+
+# Выведите на экран текст детской песенки:
+#
+# Baa, baa, black sheep,
+# Have you any wool?
+# Yes sir, yes sir,
+# Three bags full
+#
+# One for the master,
+# One for the dame,
+# And one for the little boy
+# Who lives down the lane
+#
+# Baa, baa, black sheep,
+# Have you any wool?
+# Yes sir, yes sir,
+# Three bags full
+#
+# Отступите от левого края расстояние, равное двум табуляциям.
+# Выполните перенос текста на новую строку двумя способами
+
+print('''
+\t\tBaa, baa, black sheep,
+\t\tHave you any wool?
+\t\tYes sir, yes sir,
+\t\tThree bags full
+
+\t\tOne for the master,
+\t\tOne for the dame,
+\t\tAnd one for the little boy
+\t\tWho lives down the lane
+''')
