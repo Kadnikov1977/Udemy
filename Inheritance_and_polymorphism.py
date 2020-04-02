@@ -32,37 +32,77 @@
 # new_track.drive('Moscow')
 # new_track.load_cargo(2300)
 
-class Dog:
-    def __init__(self, name):
+# class Dog:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def speak(self):
+#         print(self.name + ' is saying woof')
+#
+# class Cat:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def speak(self):
+#         print(self.name + ' is saying meow')
+#
+# class Mouse:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def speak(self):
+#         print(self.name + ' is saying pee-pee-pee')
+#
+# spike = Dog('Spike')
+# tom = Cat('Tom')
+# jerry = Mouse('Jerry')
+#
+# pet_list = [spike, tom, jerry]
+#
+# def pet_voice(pet):
+#     pet.speak()
+#
+# for pet in pet_list:
+#     pet_voice(pet)
+
+# =================================================================================================
+
+# Задания
+
+# Создайте класс GameCharacter с атрибутами name, health, level и методом speak(),
+# который выводит на печать 'Hi, my name is (значение атрибута name)'.
+
+# Создайте класс Villain, наследник класса GameCharacter с теми же атрибутами,
+# методом speak(), который выводит на печать 'Hi, my name is (значение атрибута name) and I will kill you',
+# методом kill(), который принимает в качестве параметра объект класса GameCharacter,
+# присваивает атрибуту health этого объекта значение 0 и  выводит на печать 'Bang-bang, now you're dead'
+
+class GameCharacter:
+    def __init__(self, name, health, level):
         self.name = name
+        self.health = health
+        self.level = level
 
     def speak(self):
-        print(self.name + ' is saying woof')
+        print(f'Hi, my name is {self.name} ')
 
-class Cat:
-    def __init__(self, name):
+harrychpoker = GameCharacter('Harrychpoker', 30000, 80)
+harrychpoker.speak()
+
+class Villain(GameCharacter):
+    def __init__(self, name, health, level):
         self.name = name
+        self.health = health
+        self.level = level
 
     def speak(self):
-        print(self.name + ' is saying meow')
+        print(f'Hi, my name is {self.name} and I will kill you')
 
-class Mouse:
-    def __init__(self, name):
-        self.name = name
+    def kill(self, other):
+        other.health = 0
+        print(f'Bang-bang, now {other.name} you\'re dead')
 
-    def speak(self):
-        print(self.name + ' is saying pee-pee-pee')
-
-spike = Dog('Spike')
-tom = Cat('Tom')
-jerry = Mouse('Jerry')
-
-pet_list = [spike, tom, jerry]
-
-def pet_voice(pet):
-    pet.speak()
-
-for pet in pet_list:
-    pet_voice(pet)
-
-
+lich = Villain('Lich', 100000, 90)
+lich.speak()
+lich.kill(harrychpoker)
+print(harrychpoker.health)
