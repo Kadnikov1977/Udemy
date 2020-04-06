@@ -30,6 +30,7 @@ def contry_stat(your_country):
                     'Дата и время актуальности данных':record_date}
     return country_dict
 
+#====================================================================================================================
 
 def world_stat(your_country):
     url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php"
@@ -109,7 +110,8 @@ def main():
         print(dic, ' = ', country_dict[dic])
 
     print()
-    print(chr(169) + ' 2020, HarryChpoker\'s program. All rights reserved.')
+    # print(chr(169))
+    print('\u00a9 2020, HarryChpoker\'s program. All rights reserved.')
     input('Для закрытия программы Нажмите клавишу ENTER')
 
 if __name__ == '__main__':
