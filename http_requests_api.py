@@ -29,9 +29,10 @@ countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua 
              'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'UAE', 'UK', 'USA', 'Uruguay', 'Uzbekistan',
              'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe']
 
+print('Эта программа позволяет получать актуальные данные о кол-ве заразившихся вирусом COVID-19 в разных странах мира')
 while True:
     try:
-        your_country = input('Введите название страны на английском языке ')
+        your_country = input('Введите название страны на английском языке с заглавной буквы, например Russia ')
         if your_country not in countries:
             raise ValueError
         if type(your_country) is not str:
@@ -71,5 +72,6 @@ for dic in country_dict:
         country_dict[dic] = 'нет данных'
     print(dic, ' = ', country_dict[dic])
 
-
+print()
+input('Для закрытия программы Нажмите клавишу ENTER')
 
