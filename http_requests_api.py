@@ -109,6 +109,7 @@ def main():
         print(dic, ' = ', country_dict[dic])
 
     print()
+    print(chr(169) + ' 2020, HarryChpoker\'s program. All rights reserved.')
     input('Для закрытия программы Нажмите клавишу ENTER')
 
 if __name__ == '__main__':
