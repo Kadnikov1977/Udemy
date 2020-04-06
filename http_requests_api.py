@@ -31,7 +31,7 @@ countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua 
 
 while True:
     try:
-        your_country = input('ВВедите название страны на английском языке ')
+        your_country = input('Введите название страны на английском языке ')
         if your_country not in countries:
             raise ValueError
         if type(your_country) is not str:
@@ -61,10 +61,15 @@ total_deaths = data['latest_stat_by_country'][0]['total_deaths'] # всего у
 new_deaths = data['latest_stat_by_country'][0]['new_deaths'] # умерло за сутки
 total_recovered = data['latest_stat_by_country'][0]['total_recovered'] # всего выздоровело
 record_date = data['latest_stat_by_country'][0]['record_date'] # дата и время актуальности данных
-print(f'Cтрана {country_name}')
-print(f'Всего больных {total_cases}')
-print(f'Новых больных за сутки {new_cases}')
-print(f'Всего умерло {total_cases}')
-print(f'Умерло за сутки {new_deaths}')
-print(f'Всего выздоровело {total_recovered}')
-print(f'Дата и время актуальности данных {record_date}')
+
+country_dict = {'Cтрана':country_name,'Всего больных':total_cases,'Новых больных за сутки':new_cases,
+                'Всего умерло':total_deaths,'Умерло за сутки':new_deaths,'Всего выздоровело':total_recovered,
+                'Дата и время актуальности данных':record_date}
+
+for dic in country_dict:
+    if country_dict[dic] == '':
+        country_dict[dic] = 'нет данных'
+    print(dic, ' = ', country_dict[dic])
+
+
+
