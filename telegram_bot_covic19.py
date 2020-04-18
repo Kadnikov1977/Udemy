@@ -40,20 +40,23 @@ def send_echo(message):
         }
 
         response = requests.request("GET", url, headers=headers)
-        data = response.json()
-        country_name = 'World'  # страна
-        total_cases = data['total_cases']  # всего больных
-        new_cases = data['new_cases']  # больных за сутки
-        total_deaths = data['total_deaths']  # всего умерло
-        new_deaths = data['new_deaths']  # умерло за сутки
-        total_recovered = data['total_recovered']  # всего выздоровело
-        record_date = data['statistic_taken_at']  # дата и время актуальности данных
-        text_for_print = u'Страна = ' + country_name + '\n' + u'Всего больных = ' + total_cases + '\n' \
-                         + u'Новых больных за сутки = ' + new_cases + '\n' + u'Всего умерло = ' + total_deaths + '\n' \
-                         + u'Умерло за сутки = ' + new_deaths + '\n' + u'Всего выздоровело = ' + total_recovered + '\n' \
-                         + u'Дата и время актуальности данных = ' + record_date + '\n\n'
-        bot.send_message(message.chat.id, text_for_print)
-
+        if response.status_code == 200:
+            data = response.json()
+            country_name = 'World'  # страна
+            total_cases = data['total_cases']  # всего больных
+            new_cases = data['new_cases']  # больных за сутки
+            total_deaths = data['total_deaths']  # всего умерло
+            new_deaths = data['new_deaths']  # умерло за сутки
+            total_recovered = data['total_recovered']  # всего выздоровело
+            record_date = data['statistic_taken_at']  # дата и время актуальности данных
+            text_for_print = u'Страна = ' + country_name + '\n' + u'Всего больных = ' + total_cases + '\n' \
+                             + u'Новых больных за сутки = ' + new_cases + '\n' + u'Всего умерло = ' + total_deaths + '\n' \
+                             + u'Умерло за сутки = ' + new_deaths + '\n' + u'Всего выздоровело = ' + total_recovered + '\n' \
+                             + u'Дата и время актуальности данных = ' + record_date + '\n\n'
+            bot.send_message(message.chat.id, text_for_print)
+        else:
+            text_for_print = u"Ошибка соединения с сервером"
+            bot.send_message(message.chat.id, text_for_print)
     else:
         if message.text not in countries:
             text_for_print = u'Некорректный ввод, будет выведена информация о России' + '\n\n'
@@ -64,46 +67,58 @@ def send_echo(message):
         headers = {'x-rapidapi-host': "coronavirus-monitor.p.rapidapi.com",
                    'x-rapidapi-key': "c41ce9c4dbmsh911cfeb5c4d2a99p1ca1bejsn89396f8553f6"}
         response = requests.request("GET", url, headers=headers, params=querystring)
-        data = response.json()
-        country_name = data['latest_stat_by_country'][0]['country_name']
-        total_cases = data['latest_stat_by_country'][0]['total_cases']
-        new_cases = data['latest_stat_by_country'][0]['new_cases']
-        total_deaths = data['latest_stat_by_country'][0]['total_deaths']
-        new_deaths = data['latest_stat_by_country'][0]['new_deaths']
-        total_recovered = data['latest_stat_by_country'][0]['total_recovered']
-        record_date = data['latest_stat_by_country'][0]['record_date']
-        text_for_print = u'Страна = ' + country_name + '\n' + u'Всего больных = ' + total_cases + '\n' \
-                         + u'Новых больных за сутки = ' + new_cases + '\n' + u'Всего умерло = ' + total_deaths + '\n'\
-                         + u'Умерло за сутки = ' + new_deaths + '\n' + u'Всего выздоровело = ' + total_recovered + '\n'\
-                         + u'Дата и время актуальности данных = ' + record_date + '\n\n'
-        bot.send_message(message.chat.id, text_for_print)
+        if response.status_code == 200:
+            data = response.json()
+            country_name = data['latest_stat_by_country'][0]['country_name']
+            total_cases = data['latest_stat_by_country'][0]['total_cases']
+            new_cases = data['latest_stat_by_country'][0]['new_cases']
+            total_deaths = data['latest_stat_by_country'][0]['total_deaths']
+            new_deaths = data['latest_stat_by_country'][0]['new_deaths']
+            total_recovered = data['latest_stat_by_country'][0]['total_recovered']
+            record_date = data['latest_stat_by_country'][0]['record_date']
+            text_for_print = u'Страна = ' + country_name + '\n' + u'Всего больных = ' + total_cases + '\n' \
+                             + u'Новых больных за сутки = ' + new_cases + '\n' + u'Всего умерло = ' + total_deaths + '\n'\
+                             + u'Умерло за сутки = ' + new_deaths + '\n' + u'Всего выздоровело = ' + total_recovered + '\n'\
+                             + u'Дата и время актуальности данных = ' + record_date + '\n\n'
+            bot.send_message(message.chat.id, text_for_print)
+        else:
+            text_for_print = u"Ошибка соединения с сервером"
+            bot.send_message(message.chat.id, text_for_print)
         if message.text == 'Russia':
             URL = 'https://ncov.blog/countries/ru/'
             HEADERS = {
                 'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.92 Safari/537.36',
                 'accept': '*/*'}
             response = requests.request("GET", URL, headers=HEADERS)
-            html_data = BeautifulSoup(response.text, 'html.parser')
-            quotes = html_data.find_all(class_='text-dark')
-            quotes1 = html_data.find_all(class_='badge badge p-2 badge-info')
-            new_list = [t.text for t in quotes]
-            new_list1 = [t.text for t in quotes1]
-            text_for_print = u'Всего зарегистрированных случаев заражения' + '\n' +'\n'
-            for i in range(0, len(new_list)):
-                text_for_print += str(i + 1) + '.' + new_list[i] + ' - ' + new_list1[i] + '\n'
-            bot.send_message(message.chat.id, text_for_print)
+            if response.status_code == 200:
+                html_data = BeautifulSoup(response.text, 'html.parser')
+                quotes = html_data.find_all(class_='text-dark')
+                quotes1 = html_data.find_all(class_='badge badge p-2 badge-info')
+                new_list = [t.text for t in quotes]
+                new_list1 = [t.text for t in quotes1]
+                text_for_print = u'Всего зарегистрированных случаев заражения' + '\n' +'\n'
+                for i in range(0, len(new_list)):
+                    text_for_print += str(i + 1) + '.' + new_list[i] + ' - ' + new_list1[i] + '\n'
+                bot.send_message(message.chat.id, text_for_print)
+            else:
+                text_for_print = u"Ошибка соединения с сервером"
+                bot.send_message(message.chat.id, text_for_print)
         elif message.text == 'Kazakhstan':
             URL = 'https://www.coronavirus2020.kz/'
             HEADERS = {
                 'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.92 Safari/537.36',
                 'accept': '*/*'}
             response = requests.request("GET", URL, headers=HEADERS)
-            html_data = BeautifulSoup(response.text, 'html.parser')
-            quotes = html_data.find_all(class_='city_cov')
-            new_list = [t.text for t in quotes]
-            text_for_print = u'Всего зарегистрированных случаев заражения \n'
-            text_for_print += new_list[0]
-            bot.send_message(message.chat.id, text_for_print)
+            if response.status_code == 200:
+                html_data = BeautifulSoup(response.text, 'html.parser')
+                quotes = html_data.find_all(class_='city_cov')
+                new_list = [t.text for t in quotes]
+                text_for_print = u'Всего зарегистрированных случаев заражения \n'
+                text_for_print += new_list[0]
+                bot.send_message(message.chat.id, text_for_print)
+            else:
+                text_for_print = u"Ошибка соединения с сервером"
+                bot.send_message(message.chat.id, text_for_print)
 
 
 bot.polling(none_stop=True, interval=0)
