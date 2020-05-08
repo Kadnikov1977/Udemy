@@ -7,8 +7,8 @@ HEADERS = {'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/5
 response = requests.request("GET", URL, headers=HEADERS)
 # print(response.text)
 html_data = BeautifulSoup(response.text, 'html.parser')
-quotes = html_data.find_all(class_='text-dark')
-quotes1 = html_data.find_all(class_='badge badge p-2 badge-info')
+quotes = html_data.find_all(class_='p-1 align-middle pl-3')
+quotes1 = html_data.find_all(class_='badge badge-info font-weight-bold')
 new_list = [t.text for t in quotes]
 new_list1 = [t.text for t in quotes1]
 # print(len(new_list))
