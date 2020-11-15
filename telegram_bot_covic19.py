@@ -92,10 +92,12 @@ def send_echo(message):
             response = requests.request("GET", URL, headers=HEADERS)
             if response.status_code == 200:
                 html_data = BeautifulSoup(response.text, 'html.parser')
-                quotes = html_data.find_all(class_='text-dark')
-                quotes1 = html_data.find_all(class_='badge badge p-2 badge-info')
+                quotes = html_data.find_all(class_='p-1 align-middle pl-3')
+                quotes1 = html_data.find_all(class_='badge badge-info font-weight-bold')
+                # quotes2 = html_data.find_all(class_='badge badge-light mb-1')
                 new_list = [t.text for t in quotes]
                 new_list1 = [t.text for t in quotes1]
+                # new_list2 = [t.text for t in quotes2]
                 text_for_print = u'Всего зарегистрированных случаев заражения' + '\n' +'\n'
                 for i in range(0, len(new_list)):
                     text_for_print += str(i + 1) + '.' + new_list[i] + ' - ' + new_list1[i] + '\n'
