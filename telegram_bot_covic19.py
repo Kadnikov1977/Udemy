@@ -44,7 +44,7 @@ def send_echo(message):
         if response.status_code == 200:
             data = response.json()
             country_name = 'World'  # страна
-            total_cases = data['total_cases']  # всего больных
+            total_cases = data['total_cases']  # больных всего
             new_cases = data['new_cases']  # больных за сутки
             total_deaths = data['total_deaths']  # всего умерло
             new_deaths = data['new_deaths']  # умерло за сутки
